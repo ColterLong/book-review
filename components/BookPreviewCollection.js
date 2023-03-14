@@ -1,5 +1,6 @@
 import React from 'react'
 import BookPreviewCard from './BookPreviewCard'
+import styles from './BookPreviewCollection.module.css'
 
 // TODO remove before production
 // read json from file because limited number of api calls
@@ -35,11 +36,12 @@ const BookPreviewCollection = () => {
     // const renderTrendingBooks = arrTrendingBooks.map((book, index) =>
     //   <div key={index}>{book}</div>  
     // );
-    return <div>
+    return <div className={styles.collection}>
       {arrTrendingBooks.map(book => (
         <BookPreviewCard 
           title={book.title} 
           author={book.author} 
+          bookImage={book.book_image}
         />
       ))}
     </div>
@@ -54,13 +56,15 @@ const BookPreviewCollection = () => {
   return (
     
     <div key='TrendingBooks'>
-      BookPreviewCollection
+      <h1 className={styles.title}>Trending</h1>
       {/* <button onClick={callTrendingBooks}>callTrendingbooks</button> */}
       {renderTrendingBooks()}
       
 
     </div>
   )
+
+
 }
 
 export default BookPreviewCollection

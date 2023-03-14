@@ -1,0 +1,9 @@
+.collection {
+  display: flex;
+  height: 500px;
+
+}
+
+.title {
+  padding-left: 20px;
+}

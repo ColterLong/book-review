@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500&display=swap');
+
 :root {
   --background-color: #10141E;
   --background-color-medium-blue: #161D2F;
@@ -6,6 +8,7 @@
 
   background-color: var(--background-color);
   color: white;
+  font-family: 'Outfit', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
