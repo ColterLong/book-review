@@ -4,8 +4,13 @@ import styles from './BookPreviewCollection.module.css'
 
 // TODO remove before production
 // read json from file because limited number of api calls
-const arrTrendingBooks = require('../hardcover-fiction.json').results.books;
-// console.log(arrTrendingBooks);
+//const arrTrendingBooks = require('../hardcover-fiction.json').results.books;
+const arrTrendingBooks = require('../api.nytimes.com-svc-books-v3-lists-full--overview.json').results.lists[0].books;
+//console.log(arrTrendingBooks);
+
+
+const allBooks = require('../api.nytimes.com-svc-books-v3-lists-full--overview.json').results.lists;
+//console.log(allBooks);
 
 const BookPreviewCollection = () => {
   // TODO: uncomment this before production
@@ -32,6 +37,11 @@ const BookPreviewCollection = () => {
   //   <div key={index}>{book}</div>  
   // );
 
+
+
+
+ 
+
   function renderTrendingBooks() {
     // const renderTrendingBooks = arrTrendingBooks.map((book, index) =>
     //   <div key={index}>{book}</div>  
@@ -47,6 +57,35 @@ const BookPreviewCollection = () => {
     </div>
   }
   
+  function renderTrendingBooksNew(books) {
+    return <div className={styles.collection}>
+      {books.map(book => (
+        <BookPreviewCard 
+          title={book.title} 
+          author={book.author} 
+          bookImage={book.book_image}
+        />
+      ))}
+    </div>
+  }
+
+  function renderAllBooks() {
+    return <div>
+      {allBooks.map(listName => (
+        <div>
+          <p className={styles.title}>{listName.list_name}</p>
+          {renderTrendingBooksNew(listName.books)}
+          {/* {listName.books.map(book => (
+            <BookPreviewCard 
+              title={book.title} 
+              author={book.author} 
+              bookImage={book.book_image}
+            />
+          ))} */}
+        </div>
+      ))}
+    </div>
+  }
 
   // for (book in arrTrendingBooks) {
   //   console.log("book: ")
@@ -58,8 +97,8 @@ const BookPreviewCollection = () => {
     <div key='TrendingBooks'>
       <h1 className={styles.title}>Trending</h1>
       {/* <button onClick={callTrendingBooks}>callTrendingbooks</button> */}
-      {renderTrendingBooks()}
-      
+      {/* {renderTrendingBooks()} */}
+      {renderAllBooks()}
 
     </div>
   )
