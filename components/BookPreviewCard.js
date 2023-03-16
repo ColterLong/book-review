@@ -14,6 +14,7 @@ const BookPreviewCard = ( {title, author, bookImage} ) => {
   return (
     <div key={title} className={styles.card}>
       <Image
+        className={styles.image}
         alt={title}
         src={bookImage}
         width={200}

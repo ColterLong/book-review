@@ -10,4 +10,21 @@
 .text {
   margin: 0px;
   padding: 0px;
+  position: relative;
+  bottom:180px;
+  left:30px;
+  max-width: 150px;
+  visibility:hidden;
 }
+
+.card:hover .image {
+  filter: brightness(30%);
+}
+
+.card:hover .text {
+  visibility: visible;
+  filter: brightness(100%);
+}
+
+
+

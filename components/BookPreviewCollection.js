@@ -5,7 +5,7 @@ import styles from './BookPreviewCollection.module.css'
 // TODO remove before production
 // read json from file because limited number of api calls
 //const arrTrendingBooks = require('../hardcover-fiction.json').results.books;
-const arrTrendingBooks = require('../api.nytimes.com-svc-books-v3-lists-full--overview.json').results.lists[0].books;
+//const arrTrendingBooks = require('../api.nytimes.com-svc-books-v3-lists-full--overview.json').results.lists[0].books;
 //console.log(arrTrendingBooks);
 
 
@@ -37,27 +37,8 @@ const BookPreviewCollection = () => {
   //   <div key={index}>{book}</div>  
   // );
 
-
-
-
- 
-
-  function renderTrendingBooks() {
-    // const renderTrendingBooks = arrTrendingBooks.map((book, index) =>
-    //   <div key={index}>{book}</div>  
-    // );
-    return <div className={styles.collection}>
-      {arrTrendingBooks.map(book => (
-        <BookPreviewCard 
-          title={book.title} 
-          author={book.author} 
-          bookImage={book.book_image}
-        />
-      ))}
-    </div>
-  }
   
-  function renderTrendingBooksNew(books) {
+  function renderBooks(books) {
     return <div className={styles.collection}>
       {books.map(book => (
         <BookPreviewCard 
@@ -74,32 +55,18 @@ const BookPreviewCollection = () => {
       {allBooks.map(listName => (
         <div>
           <p className={styles.title}>{listName.list_name}</p>
-          {renderTrendingBooksNew(listName.books)}
-          {/* {listName.books.map(book => (
-            <BookPreviewCard 
-              title={book.title} 
-              author={book.author} 
-              bookImage={book.book_image}
-            />
-          ))} */}
+          {renderBooks(listName.books)}
         </div>
       ))}
     </div>
   }
 
-  // for (book in arrTrendingBooks) {
-  //   console.log("book: ")
-  //   console.log(book);
-  // }
+
 
   return (
-    
     <div key='TrendingBooks'>
       <h1 className={styles.title}>Trending</h1>
-      {/* <button onClick={callTrendingBooks}>callTrendingbooks</button> */}
-      {/* {renderTrendingBooks()} */}
       {renderAllBooks()}
-
     </div>
   )
 
