@@ -1,0 +1,18 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  background-color: var(--background-color-medium-blue);
+  height: 700px;
+  border-radius: 12px;
+  padding: 32px 32px;
+  margin: 16px;
+  position: fixed;
+  
+  
+}
+
+.bookLogo {
+  margin-bottom: 32px;
+}

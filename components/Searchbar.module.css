@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  margin-left: 135px;
+  margin-top: 42px;
+
+}
+
+.searchIcon {
+  padding-top: 4px;
+}
+
+.input {
+  padding: 8px;
+  margin-left: 8px;
+  border: 0px;
+  background-color: transparent;
+  width: 360px;
+  font-size: 20px;
+  font-family: 'Outfit', sans-serif;
+  color: white;
+}

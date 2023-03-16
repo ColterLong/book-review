@@ -29,25 +29,7 @@
   flex-direction: column;
 }
 
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  align-items: center;
-  padding-top: 32px;
-  background-color: var(--background-color-medium-blue);
-  width: 96px;
-  height: 960px;
-  border-radius: 8px;
-  
-}
 
-.sidebar:nth-child(2n) {
-  /* margin: 64px;
-  padding-top: 64px; */
-  width: 32px;
-
-}
 
 html,
 body {
