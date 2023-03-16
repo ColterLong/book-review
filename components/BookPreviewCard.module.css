@@ -1,21 +1,23 @@
 .card {
-  /* width: 500px;
-  height: 500px; */
-
   display: flex;
   flex-direction: column;
   padding: 0px;
   margin: 0px 20px;
 }
 
+ 
 .text {
-  margin: 0px;
-  padding: 0px;
+  word-break: break-word;
+  white-space: normal;
+  visibility: hidden;
+}
+
+.container {
   position: relative;
-  bottom:180px;
-  left:30px;
-  max-width: 150px;
-  visibility:hidden;
+  bottom: 220px;
+  left: 30px;
+  inline-size: 150px;
+
 }
 
 .card:hover .image {
