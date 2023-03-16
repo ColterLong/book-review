@@ -51,21 +51,21 @@ const BookPreviewCollection = () => {
   }
 
   function renderAllBooks() {
-    return <div>
+    return <>
       {allBooks.map(listName => (
-        <div>
-          <p className={styles.title}>{listName.list_name}</p>
+        <div className={styles.bookSection}>
+          <h2 className={styles.title}>{listName.list_name}</h2>
           {renderBooks(listName.books)}
         </div>
       ))}
-    </div>
+    </>
   }
 
 
 
   return (
     <div key='TrendingBooks'>
-      <h1 className={styles.title}>Trending</h1>
+      {/* <h1 className={styles.title}>Trending</h1> */}
       {renderAllBooks()}
     </div>
   )

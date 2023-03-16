@@ -20,7 +20,9 @@ const BookPreviewCard = ( {title, author, bookImage} ) => {
         width={200}
         height={300}
       />
-      <p className={styles.text}>{title} by {author}</p>
+      <p className={styles.text}>{title}</p>
+      {/* <br /> */}
+      <p className={styles.text}>by {author}</p>
     </div>
   )
 }

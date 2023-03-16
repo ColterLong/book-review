@@ -1,9 +1,14 @@
 .collection {
   display: flex;
-  height: 500px;
-
+  margin: 0px;
+  padding: 0px;
+  height: 300px;
 }
 
 .title {
   padding-left: 20px;
+}
+
+.bookSection {
+  margin-bottom: 50px;
 }
