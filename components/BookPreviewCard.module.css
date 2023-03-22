@@ -29,5 +29,7 @@
   filter: brightness(100%);
 }
 
-
-
+.link {
+  color: inherit;
+  text-decoration: inherit;
+}

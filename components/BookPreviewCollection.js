@@ -2,6 +2,8 @@ import React from 'react'
 import BookPreviewCard from './BookPreviewCard'
 import styles from './BookPreviewCollection.module.css'
 
+import Link from 'next/link'
+
 // TODO remove before production
 // read json from file because limited number of api calls
 //const arrTrendingBooks = require('../hardcover-fiction.json').results.books;
@@ -45,6 +47,11 @@ const BookPreviewCollection = () => {
           title={book.title} 
           author={book.author} 
           bookImage={book.book_image}
+          description={book.description}
+          isbn10={book.primary_isbn10}
+          isbn13={book.primary_isbn13}
+          publisher={book.publisher}
+          amazonLink={book.buy_links[0].url}
         />
       ))}
     </div>
@@ -52,6 +59,7 @@ const BookPreviewCollection = () => {
 
   function renderAllBooks() {
     return <>
+      {/* <Link href='book2'>Click to open book</Link> */}
       {allBooks.map(listName => (
         <div className={styles.bookSection}>
           <h2 className={styles.title}>{listName.list_name}</h2>
