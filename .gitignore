@@ -2,6 +2,7 @@
 
 # api
 api_sec
+firebase.config.js
 
 # dependencies
 /node_modules

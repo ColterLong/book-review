@@ -6,11 +6,24 @@ import styles from '@/styles/Home.module.css'
 import Layout from '@/components/Layout'
 
 
-export default function Home() {
+export default function Home(props) {
   return (
-    <>
-      <Layout />
+    <div>
+      {props.user ? (
+        <>
+          <span>Signed in as : {props.user.email}</span>
+          <button onClick={props.signOut}>Sign Out</button>
+          <Layout />
+        </>
+      ) : (
+        <button onClick={props.signIn}>Sign In</button>
+      )}
+    </div>
+  );
+  // return (
+  //   <>
+  //     <Layout />
 
-    </>
-  )
+  //   </>
+  // )
 }
