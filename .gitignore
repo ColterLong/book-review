@@ -3,6 +3,7 @@
 # api
 api_sec
 firebase.config.js
+.env
 
 # dependencies
 /node_modules
