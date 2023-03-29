@@ -14,9 +14,6 @@ import { firebaseConfig } from '@/firebase.config'
   const signOut = () => auth.signOut();
 
 export default function App({ Component, pageProps }) {
-
-  
-
   const [user, setUser] = useState(null);
 
   useEffect(() => {

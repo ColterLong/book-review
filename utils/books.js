@@ -1,17 +1,22 @@
 import { getFirestore, doc, getDoc, getDocs, collection, query } from 'firebase/firestore'
-import { getAuth } from 'firebase/auth'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
+
+const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("user signed in:")
+    console.log(user);
+    console.log("user uid:")
+    console.log(user.uid)
+  } else {
+    console.log("user not signed in")
+  }
+})
 
 const getBooks = async () => {
 
   const arr = [];
   const db = getFirestore();
-  console.log("get auth")
-  const auth = getAuth();
-const user = auth.currentUser;
-  console.log(user);
- 
-  // const uid = auth.currentUser.uid;
-  // console.log(getAuth());
  
   const q = query(collection(db, "users","elrtifLALpClRAWjvfeg", "favorites"));
   // const q = query(collection(db, "users", user, "favorites"));
