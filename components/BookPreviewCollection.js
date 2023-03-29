@@ -57,6 +57,7 @@ const BookPreviewCollection = () => {
     </div>
   }
 
+
   function renderAllBooks() {
     return <>
       {/* <Link href='book2'>Click to open book</Link> */}
