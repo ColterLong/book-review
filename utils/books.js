@@ -1,5 +1,30 @@
 import { getFirestore, addDoc, setDoc, doc, getDoc, getDocs, collection, query } from 'firebase/firestore'
 
+const pushToFavorites = async (user, title, image) => {
+  const db = getFirestore();
+  const q = doc(db, "users", user);
+  // const book = await addDoc(collection(q, "favorites"), {
+  //   title: "first book",
+  //   image: "https://storage.googleapis.com/du-prd/books/images/9781668001226.jpg"
+  // });
+
+
+  const favoritesDoc = doc(db, "users", user, "favorites", title);
+  // await setDoc(favoritesDoc, {merge: true,
+  //                            title: "second title", image: "https://storage.googleapis.com/du-prd/books/images/9781524798628.jpg"})
+                            
+  await setDoc(favoritesDoc, {merge: true,
+  title: title, image: image})
+ 
+                            //  title={book.title} 
+                            //  author={book.author} 
+                            //  bookImage={book.image}
+                            //  description={book.description}
+                            //  isbn10={book.isbn10}
+                            //  isbn13={book.isbn13}
+                            //  publisher={book.publisher}
+}
+
 const verifyUserInDatabase = async (user) => {
   const db = getFirestore();
   const q = doc(db, "users", user);
@@ -56,4 +81,4 @@ const getBooks = async (user) => {
   return arr;
 }
 
-export { getBooks, verifyUserInDatabase };
+export { getBooks, verifyUserInDatabase, pushToFavorites };
