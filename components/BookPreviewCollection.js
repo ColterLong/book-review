@@ -4,6 +4,11 @@ import styles from './BookPreviewCollection.module.css'
 
 import Link from 'next/link'
 
+import {useState, useEffect} from 'react'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
+
+
+
 // TODO remove before production
 // read json from file because limited number of api calls
 //const arrTrendingBooks = require('../hardcover-fiction.json').results.books;
@@ -39,11 +44,23 @@ const BookPreviewCollection = () => {
   //   <div key={index}>{book}</div>  
   // );
 
+  const [currentUser, setCurrentUser] = useState();
+  const auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setCurrentUser(user.uid)
+      console.log("current user from collection: " + currentUser)
+    } else {
+      console.log("user not signed in")
+    }
+  })
+
   
-  function renderBooks(books) {
+  function renderBooks(books, currentUser) {
     return <div className={styles.collection}>
       {books.map(book => (
         <BookPreviewCard 
+          user={currentUser}
           title={book.title} 
           author={book.author} 
           bookImage={book.book_image}
@@ -58,13 +75,13 @@ const BookPreviewCollection = () => {
   }
 
 
-  function renderAllBooks() {
+  function renderAllBooks(currentUser) {
     return <>
       {/* <Link href='book2'>Click to open book</Link> */}
       {allBooks.map(listName => (
         <div className={styles.bookSection}>
           <h2 className={styles.title}>{listName.list_name}</h2>
-          {renderBooks(listName.books)}
+          {renderBooks(listName.books, currentUser)}
         </div>
       ))}
     </>
@@ -75,7 +92,7 @@ const BookPreviewCollection = () => {
   return (
     <div key='TrendingBooks'>
       {/* <h1 className={styles.title}>Trending</h1> */}
-      {renderAllBooks()}
+      {renderAllBooks(currentUser)}
     </div>
   )
 
