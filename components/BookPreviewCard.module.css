@@ -49,3 +49,7 @@
   fill: #5A698F;
 }
 
+.button:hover .svgRemove {
+  fill: red;
+}
+

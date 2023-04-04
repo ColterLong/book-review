@@ -33,15 +33,6 @@ const bookmarks = () => {
       // let books = await getBooks("elrtifLALpClRAWjvfeg");
       let verifyUser = await verifyUserInDatabase(String(currentUser))
       console.log(verifyUser)
-
-      
-
-      
-      // if (! test) {
-      //   pushToFavorites(String(currentUser));
-      //   setTest(true)
-      // }
-
       let books = await getBooks(String(currentUser));
       setBooks(books);
     }
@@ -58,7 +49,7 @@ const bookmarks = () => {
   return (
     <>
       <h1>Bookmarks</h1>
-      <BookPreviewFavoritesCollection books={books} />
+      <BookPreviewFavoritesCollection user={currentUser} books={books} />
     </>
     
   )

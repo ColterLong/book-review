@@ -1,6 +1,9 @@
-import { getFirestore, addDoc, setDoc, doc, getDoc, getDocs, collection, query } from 'firebase/firestore'
+import { getFirestore, addDoc, setDoc, doc, getDoc, getDocs, collection, query, deleteDoc } from 'firebase/firestore'
 
 const pushToFavorites = async (user, title, image, author, description, isbn10, isbn13, publisher) => {
+  console.log("inside favorites")
+  console.log("user: " + user)
+  
   const db = getFirestore();
   const q = doc(db, "users", user);
   // const book = await addDoc(collection(q, "favorites"), {
@@ -9,7 +12,7 @@ const pushToFavorites = async (user, title, image, author, description, isbn10, 
   // });
 
 
-  const favoritesDoc = doc(db, "users", user, "favorites", title);
+  const favoritesDoc = doc(db, "users", user, "favorites", isbn13);
   // await setDoc(favoritesDoc, {merge: true,
   //                            title: "second title", image: "https://storage.googleapis.com/du-prd/books/images/9781524798628.jpg"})
                             
@@ -21,16 +24,28 @@ const pushToFavorites = async (user, title, image, author, description, isbn10, 
   isbn10: isbn10,
   isbn13: isbn13,
   publisher: publisher,
-})
- 
-                            //  title={book.title} 
-                            //  author={book.author} 
-                            //  bookImage={book.image}
-                            //  description={book.description}
-                            //  isbn10={book.isbn10}
-                            //  isbn13={book.isbn13}
-                            //  publisher={book.publisher}
+  })
 }
+
+const removeFromFavorites = async (user, isbn13) => {
+  console.log("inside remove from favorites")
+  console.log("user: " + user)
+  console.log("isbn13: " + isbn13)
+  // console.log("title: " + title)
+  const db = getFirestore();
+  const docToRemove = doc(db, "users", user, "favorites", isbn13);
+  
+  // const docSnap = await getDoc(docToRemove)
+  const docSnap = await getDoc(doc(db, "users", user, "favorites", isbn13))
+  if (docSnap.exists()) {
+    console.log("file exists")
+    console.log(docSnap.data())
+    await deleteDoc(docToRemove);
+  } else {
+    console.log("file does not exist")
+  }
+}
+
 
 const verifyUserInDatabase = async (user) => {
   const db = getFirestore();
@@ -88,4 +103,4 @@ const getBooks = async (user) => {
   return arr;
 }
 
-export { getBooks, verifyUserInDatabase, pushToFavorites };
+export { getBooks, verifyUserInDatabase, pushToFavorites, removeFromFavorites };

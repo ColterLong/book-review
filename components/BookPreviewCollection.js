@@ -69,6 +69,7 @@ const BookPreviewCollection = () => {
           isbn13={book.primary_isbn13}
           publisher={book.publisher}
           amazonLink={book.buy_links[0].url}
+          willAddBook={true}
         />
       ))}
     </div>
