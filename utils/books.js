@@ -1,6 +1,6 @@
 import { getFirestore, addDoc, setDoc, doc, getDoc, getDocs, collection, query } from 'firebase/firestore'
 
-const pushToFavorites = async (user, title, image) => {
+const pushToFavorites = async (user, title, image, author, description, isbn10, isbn13, publisher) => {
   const db = getFirestore();
   const q = doc(db, "users", user);
   // const book = await addDoc(collection(q, "favorites"), {
@@ -14,7 +14,14 @@ const pushToFavorites = async (user, title, image) => {
   //                            title: "second title", image: "https://storage.googleapis.com/du-prd/books/images/9781524798628.jpg"})
                             
   await setDoc(favoritesDoc, {merge: true,
-  title: title, image: image})
+  title: title, 
+  image: image,
+  author: author,
+  description: description,
+  isbn10: isbn10,
+  isbn13: isbn13,
+  publisher: publisher,
+})
  
                             //  title={book.title} 
                             //  author={book.author} 

@@ -40,3 +40,12 @@
   left: 165px;
   width: 30px;
 }
+
+.button:hover .svg {
+  fill: orange;
+}
+
+.svg {
+  fill: #5A698F;
+}
+

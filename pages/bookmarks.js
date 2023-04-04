@@ -58,7 +58,7 @@ const bookmarks = () => {
 
   return (
     <>
-      <h1>bookmarks</h1>
+      <h1>Bookmarks</h1>
       <BookPreviewFavoritesCollection books={books} />
     </>
     

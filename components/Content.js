@@ -5,7 +5,7 @@ import BookPreviewCollection from './BookPreviewCollection'
 const Content = () => {
   return (
     <div className='content'>
-      <Searchbar />
+      {/* <Searchbar /> */}
       <BookPreviewCollection />
     </div>
     
