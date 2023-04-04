@@ -1,5 +1,4 @@
 import React from 'react'
-import Favorites from '@/components/Favorites'
 import {useState, useEffect} from 'react'
 import { getBooks, verifyUserInDatabase, pushToFavorites } from "../utils/books"
 import BookPreviewFavoritesCollection from '../components/BookPreviewFavoritesCollection'
