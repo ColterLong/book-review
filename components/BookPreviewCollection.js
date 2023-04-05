@@ -1,60 +1,39 @@
 import React from 'react'
 import BookPreviewCard from './BookPreviewCard'
 import styles from './BookPreviewCollection.module.css'
-
-import Link from 'next/link'
-
 import {useState, useEffect} from 'react'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
-
-
-// TODO remove before production
-// read json from file because limited number of api calls
-//const arrTrendingBooks = require('../hardcover-fiction.json').results.books;
-//const arrTrendingBooks = require('../api.nytimes.com-svc-books-v3-lists-full--overview.json').results.lists[0].books;
-//console.log(arrTrendingBooks);
-
-
-const allBooks = require('../api.nytimes.com-svc-books-v3-lists-full--overview.json').results.lists;
-
 const BookPreviewCollection = () => {
-  // TODO: uncomment this before production
-  //
-  // use api call instead of read local file
-  //
-  // let arrTrendingBooks = [];
-  // const callTrendingBooks = async () => {
-  //   try {
-  //     ***** api call here
-  //     const data = await res.json();
-  //     console.log(data);
-  //     arrTrendingBooks.push(data.results.books);
-  //     console.log("array: ");
-  //     console.log(arrTrendingBooks);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
- 
-  // {callTrendingBooks()};
-
-  // const renderTrendingBooks = arrTrendingBooks.map((book, index) =>
-  //   <div key={index}>{book}</div>  
-  // );
-
+  const [books, setBooks] = useState([]);
+  useEffect(() => {
+    const loadBooks = async () => {
+      // let res = await fetch('https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=0hxHD6P8QgSc4Of8t7G1uPunUfeJGLnQ');
+      let res = await fetch('https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key='+process.env.NEXT_PUBLIC_API_KEY_NYT);
+      let booksJson = await res.json();
+      let allBooks = booksJson.results.lists
+      setBooks(allBooks)
+      console.log("books state variable: ")
+      console.log(books)
+      console.log("called api")
+    }
+      loadBooks();
+        
+        // const allBooks = require('../api.nytimes.com-svc-books-v3-lists-full--overview.json').results.lists;
+        // setBooks(allBooks)
+        // console.log("read file")
+  },[])
+  
   const [currentUser, setCurrentUser] = useState();
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setCurrentUser(user.uid)
-      // console.log("current user from collection: " + currentUser)
     } else {
       console.log("user not signed in")
     }
   })
 
-  
   function renderBooks(books, currentUser) {
     return <div className={styles.collection}>
       {books.map(book => (
@@ -74,10 +53,9 @@ const BookPreviewCollection = () => {
     </div>
   }
 
-
   function renderAllBooks(currentUser) {
     return <>
-      {allBooks.map(listName => (
+      {books.map(listName => (
         <div className={styles.bookSection}>
           <h2 className={styles.title}>{listName.list_name}</h2>
           {renderBooks(listName.books, currentUser)}
@@ -86,15 +64,11 @@ const BookPreviewCollection = () => {
     </>
   }
 
-
-
   return (
     <div key='TrendingBooks'>
       {renderAllBooks(currentUser)}
     </div>
   )
-
-
 }
 
 export default BookPreviewCollection

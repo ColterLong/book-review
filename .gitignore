@@ -4,6 +4,7 @@
 api_sec
 firebase.config.js
 .env
+.env.old
 
 # dependencies
 /node_modules
