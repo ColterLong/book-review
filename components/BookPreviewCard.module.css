@@ -42,8 +42,13 @@
 }
 
 .button:hover .svg {
-  fill: orange;
+  fill: rgb(0, 156, 0);
+  /* background-color: #5A698F; */
 }
+
+/* .button:hover {
+  background-color: white;
+} */
 
 .svg {
   fill: #5A698F;
