@@ -5,6 +5,7 @@
   margin: 0px 20px;
 }
 
+
  
 .text {
   word-break: break-word;
@@ -32,23 +33,20 @@
 .link {
   color: inherit;
   text-decoration: inherit;
+  width: 200px;
+  height: 300px;
 }
 
 .button {
   position: relative;
-  bottom: 390px;
-  left: 165px;
+  bottom: 300px;
+  left: 170px;
   width: 30px;
 }
 
 .button:hover .svg {
   fill: rgb(0, 156, 0);
-  /* background-color: #5A698F; */
 }
-
-/* .button:hover {
-  background-color: white;
-} */
 
 .svg {
   fill: #5A698F;
@@ -57,4 +55,3 @@
 .button:hover .svgRemove {
   fill: red;
 }
-
