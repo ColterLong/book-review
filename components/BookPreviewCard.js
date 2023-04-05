@@ -4,20 +4,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { pushToFavorites, removeFromFavorites } from '@/utils/books'
 
-
-
 const BookPreviewCard = ( {user, title, author, bookImage, description, isbn10, isbn13, publisher, amazonLink, willAddBook} ) => {
-
-  console.log("user from card: " + user)
-
   return (
     <div key={title} className={styles.card}>
-      {/* <Link href={title} className={styles.link} target="_blank"> */}
       <Link href={{
-            query: {title, author, bookImage, description, isbn10, isbn13, publisher, amazonLink}, // the data
+            query: {title, author, bookImage, description, isbn10, isbn13, publisher, amazonLink},
             pathname: '/book',
             }} 
-            // as={`/${title}`}
             className={styles.link} 
             target="_blank">
         <Image
@@ -28,7 +21,6 @@ const BookPreviewCard = ( {user, title, author, bookImage, description, isbn10, 
           height={300}
         />
         <div className={styles.container}>
-          
           <p className={styles.text}>{title}</p>
           <p className={styles.text}>by {author}</p>
         </div>

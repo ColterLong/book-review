@@ -17,7 +17,6 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 
 const allBooks = require('../api.nytimes.com-svc-books-v3-lists-full--overview.json').results.lists;
-//console.log(allBooks);
 
 const BookPreviewCollection = () => {
   // TODO: uncomment this before production
@@ -78,7 +77,6 @@ const BookPreviewCollection = () => {
 
   function renderAllBooks(currentUser) {
     return <>
-      {/* <Link href='book2'>Click to open book</Link> */}
       {allBooks.map(listName => (
         <div className={styles.bookSection}>
           <h2 className={styles.title}>{listName.list_name}</h2>
@@ -92,7 +90,6 @@ const BookPreviewCollection = () => {
 
   return (
     <div key='TrendingBooks'>
-      {/* <h1 className={styles.title}>Trending</h1> */}
       {renderAllBooks(currentUser)}
     </div>
   )

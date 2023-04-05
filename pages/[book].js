@@ -5,11 +5,7 @@ import Image from 'next/image'
 
 
 export default function BookDetails() {
-  // const bookImage = props.bookImage;
   const router = useRouter()
-  const book = router.query.book
-
-  // title, author, bookImage, description, isbn10, isbn13, publisher, amazonLink
   const title = router.query.title
   const author = router.query.author
   const bookImage = router.query.bookImage
@@ -17,14 +13,13 @@ export default function BookDetails() {
   const isbn10 = router.query.isbn10
   const isbn13 = router.query.isbn13
   const publisher = router.query.publisher
-  const amazonLink = router.query.amazonLink
 
 
   return (
     <>
       <Image
           // className={styles.image}
-          // alt={title}
+          alt={title}
           src={bookImage}
           width={200}
           height={300}
