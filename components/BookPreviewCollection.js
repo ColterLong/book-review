@@ -48,7 +48,7 @@ const BookPreviewCollection = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setCurrentUser(user.uid)
-      console.log("current user from collection: " + currentUser)
+      // console.log("current user from collection: " + currentUser)
     } else {
       console.log("user not signed in")
     }

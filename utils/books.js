@@ -1,8 +1,6 @@
 import { getFirestore, addDoc, setDoc, doc, getDoc, getDocs, collection, query, deleteDoc } from 'firebase/firestore'
 
 const pushToFavorites = async (user, title, image, author, description, isbn10, isbn13, publisher) => {
-  console.log("inside favorites")
-  console.log("user: " + user)
   
   const db = getFirestore();
   const q = doc(db, "users", user);
@@ -36,13 +34,13 @@ const verifyUserInDatabase = async (user) => {
   const querySnapshot = await getDoc(q);
 
   if (querySnapshot.exists()) {
-    console.log("user exists in database")
+    // console.log("user exists in database")
   } else if (user === "undefined") {
-    console.log("user is undefined, should update in a minute")
+    // console.log("user is undefined, should update in a minute")
   } else {
-    console.log("user actually doesn't exist")
-    console.log(querySnapshot.exists())
-    console.log(user);
+    // console.log("user actually doesn't exist")
+    // console.log(querySnapshot.exists())
+    // console.log(user);
     await setDoc(q, {merge: true})
   }
 }
