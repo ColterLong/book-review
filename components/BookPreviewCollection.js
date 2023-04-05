@@ -8,7 +8,6 @@ const BookPreviewCollection = () => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
     const loadBooks = async () => {
-      // let res = await fetch('https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=0hxHD6P8QgSc4Of8t7G1uPunUfeJGLnQ');
       let res = await fetch('https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key='+process.env.NEXT_PUBLIC_API_KEY_NYT);
       let booksJson = await res.json();
       let allBooks = booksJson.results.lists
