@@ -14,5 +14,20 @@
 }
 
 .bookLogo {
+  fill: #5A698F;
+  /* margin-bottom: 32px; */
+}
+
+.link:hover .bookLogo,
+.link:hover .svg{
+  fill: orange;
+}
+
+
+.link {
   margin-bottom: 32px;
+}
+
+.svg {
+  fill: #5A698F;
 }

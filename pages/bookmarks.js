@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import { getBooks, verifyUserInDatabase, pushToFavorites } from "../utils/books"
 import BookPreviewFavoritesCollection from '../components/BookPreviewFavoritesCollection'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
-
+import Sidebar from '@/components/Sidebar'
 
 const bookmarks = () => {
   const [books, setBooks] = useState([]);
@@ -47,10 +47,13 @@ const bookmarks = () => {
   // },[books])
 
   return (
-    <>
+    <div className='layout'>
+      <Sidebar />
+      <div className='content'>
       <h1>Bookmarks</h1>
       <BookPreviewFavoritesCollection user={currentUser} books={books} />
-    </>
+      </div>
+    </div>
     
   )
 }
