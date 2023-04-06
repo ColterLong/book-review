@@ -5,6 +5,16 @@ import Link from 'next/link'
 import { pushToFavorites, removeFromFavorites } from '@/utils/books'
 
 const BookPreviewCard = ( {user, title, author, bookImage, description, isbn10, isbn13, publisher, amazonLink, willAddBook} ) => {
+  // console.log("title: " + title)
+  // console.log("image link: " + bookImage)
+  let image=bookImage
+  {if (bookImage === null) {
+    image="https://freesvg.org/img/mono-gnome-question.png"
+  }}
+
+
+
+  
   return (
     <div key={title} className={styles.card}>
       <Link href={{
@@ -16,7 +26,7 @@ const BookPreviewCard = ( {user, title, author, bookImage, description, isbn10, 
         <Image
           className={styles.image}
           alt={title}
-          src={bookImage}
+          src={image}
           width={200}
           height={300}
         />

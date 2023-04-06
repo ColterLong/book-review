@@ -9,6 +9,12 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'freesvg.org',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 }
