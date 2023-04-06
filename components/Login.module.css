@@ -2,7 +2,16 @@
   display: flex;
   margin-left: 24px;
   margin-top: 42px;
-
+  justify-content: center;
+  align-items: center;
+  /* width: 400px; */
+  /* height: 600px; */
+  margin: 200px 300px;
+  height: 300px;
+  width: 400px;
+  /* flex: 2; */
+  background-color: var(--background-color-medium-blue);
+  border-radius: 16px;
 }
 
 .searchIcon {

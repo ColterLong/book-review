@@ -19,6 +19,7 @@ const BookPreviewCollection = () => {
     }
       loadBooks()
         
+        // load books from file - useful for debugging
         // const allBooks = require('../api.nytimes.com-svc-books-v3-lists-full--overview.json').results.lists;
         // setBooks(allBooks)
         // console.log("read file")
