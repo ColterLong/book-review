@@ -29,13 +29,6 @@ html {
 
 }
 
-@media (prefers-color-scheme: dark) {
-  
-}
-
-* {
- 
-}
 
 .layout {
   display: flex;
@@ -45,23 +38,7 @@ html {
 .content {
   display: flex;
   flex-direction: column;
-
   overflow-x: scroll;
-}
-
-
-
-html,
-body {
-  
-}
-
-body {
-  
-}
-
-a {
- 
 }
 
 @media (prefers-color-scheme: dark) {

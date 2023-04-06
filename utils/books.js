@@ -1,9 +1,7 @@
-import { getFirestore, addDoc, setDoc, doc, getDoc, getDocs, collection, query, deleteDoc } from 'firebase/firestore'
+import { getFirestore, setDoc, doc, getDoc, getDocs, collection, query, deleteDoc } from 'firebase/firestore'
 
 const pushToFavorites = async (user, title, image, author, description, isbn10, isbn13, publisher) => {
-  
   const db = getFirestore();
-  const q = doc(db, "users", user);
   const favoritesDoc = doc(db, "users", user, "favorites", isbn13);                        
   await setDoc(favoritesDoc, {merge: true,
   title: title, 

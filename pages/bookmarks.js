@@ -15,13 +15,6 @@ const bookmarks = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setCurrentUser(user.uid)
-      // console.log(currentUser)
-
-      // let verifyUser = await verifyUserInDatabase(String(currentUser))
-      // console.log(verifyUser)
-      // let books = await getBooks(String(currentUser));
-      // setBooks(books);
-
     } else {
       console.log("user not signed in")
     }
@@ -30,15 +23,12 @@ const bookmarks = () => {
   
   useEffect(() => {
     const func = async () => {
-      // let books = await getBooks("elrtifLALpClRAWjvfeg");
       let verifyUser = await verifyUserInDatabase(String(currentUser))
-      // console.log(verifyUser)
       let books = await getBooks(String(currentUser));
       setBooks(books);
     }
     func()
   },[currentUser])
-  // also update when user adds/deletes a book
 
 
   // useEffect(() => {

@@ -3,11 +3,6 @@ import styles from './Login.module.css'
 import Image from 'next/image'
 
 const Searchbar = ( {signIn} ) => {
-
-  function searchFunction() {
-
-  }
-
   return (
     <div className={styles.container}>
         <h1>Login</h1>

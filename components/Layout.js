@@ -2,8 +2,6 @@ import React from 'react'
 import Sidebar from './Sidebar'
 import BookPreviewCollection from './BookPreviewCollection'
 
-
-
 const Layout = () => {
   return (
     <div className='layout'>

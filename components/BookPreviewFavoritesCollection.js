@@ -18,7 +18,6 @@ const BookPreviewFavoritesCollection = ( {user, books} ) => {
         />
       ))}
     </div>
-  
 }
 
 export default BookPreviewFavoritesCollection

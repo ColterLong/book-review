@@ -1,8 +1,3 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-
 import Layout from '@/components/Layout'
 import Login from '@/components/Login'
 
@@ -12,12 +7,12 @@ export default function Home(props) {
     <>
       {props.user ? (
         <>
-          <span>Signed in as : {props.user.email}</span>
+          <span>Signed in as : {props.user.email} </span>
           <button onClick={props.signOut}>Sign Out</button>
           <Layout />
         </>
       ) : (
-          <Login signIn={props.signIn} />
+        <Login signIn={props.signIn} />
       )}
     </>
   );
