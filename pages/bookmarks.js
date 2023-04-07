@@ -9,8 +9,6 @@ const bookmarks = () => {
   const [books, setBooks] = useState([]);
   const [currentUser, setCurrentUser] = useState();
 
-  const [test, setTest] = useState(false);
-
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -23,7 +21,6 @@ const bookmarks = () => {
   
   useEffect(() => {
     const func = async () => {
-      let verifyUser = await verifyUserInDatabase(String(currentUser))
       let books = await getBooks(String(currentUser));
       setBooks(books);
     }
